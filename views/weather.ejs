@@ -1,0 +1,28 @@
+<%- include("partials/header"); -%>
+
+<h1>Weather</h1>
+<p><%= weatherContent %></p>
+
+  <form class="" action="/weather"  method="post">
+      <label for="cityInput">City: </label>
+      <input id = "cityInput" style="width: 280px;" type="text" name="cityInput" placeholder="Ex: Portland or Portland,OR,US">
+      <button type="submit">Go</button>
+  </form>
+
+
+
+
+<% weatherViewHistory.forEach(function(weatherInfo){ %>
+<div>
+  <p ><h2> <%= weatherInfo.name  %> </h2> 
+    <img style="float:left" src= " <%= weatherInfo.image %> "> 
+    <br>The weather in <%= weatherInfo.name %>, <%= weatherInfo.country %> is <%= weatherInfo.weatherDescription %>
+    <br>Temperature: <%= weatherInfo.temp %> &deg; F
+    <br>Humidity: <%=weatherInfo.humidity %>
+  </p>
+</div>
+
+<% }); %>
+
+
+<%- include("partials/footer"); -%>

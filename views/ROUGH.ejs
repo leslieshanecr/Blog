@@ -1,0 +1,31 @@
+
+
+app.get("/posts/:postName", function(req, res) {
+  const requestedTitle = _.lowerCase(req.params.postName);
+
+  posts.forEach(function(post) {
+    const storedTitle = _.lowerCase(post.title);
+
+    if (storedTitle === requestedTitle) {
+      res.render("post", {
+        title: post.title,
+        content: post.content
+      });
+    }
+  });
+
+
+
+//THIS WAS USE IN WEATHER EJS
+
+<%= weatherViewHistory.forEach(function(weatherData){ %>
+  
+    <h1>The weather is + <%= weatherDescription %> + </h1>
+    <h2>The Temperature in + <%= city %> + , + <%= country %> + is + <%= temp %>  + &deg; Fahrenheit</h2>
+    <h2>Humidity: "+ <%=humidity %> + % </h2>
+    <h2>Windspeed:  + <%=windSpeed %> + mph</h2>
+
+<%= console.log(weatherViewHistory.weatherData); %>
+
+<% } %>
+    <%= }); %>

@@ -68,6 +68,8 @@ app.get("/posts/:postName", function(req, res) {
 });
 
 
+
+
 app.get("/weather", function(req, res) {
   res.render("weather", {
     weatherContent,
@@ -77,6 +79,10 @@ app.get("/weather", function(req, res) {
 
 
 app.post("/weather", function(req, res) {
+ 
+ //this allows for current search to be displayed only
+ weatherViewHistory = [];
+
   var city = String(req.body.cityInput);
 
   //build up the URL for the JSON query, API Key is // secret and needs to be obtained by signup 
